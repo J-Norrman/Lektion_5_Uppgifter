@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        boolean isPlaying = true;
 
         System.out.println("What is your name?");
         String playerName = scanner.nextLine();
@@ -17,11 +16,20 @@ public class Main {
             System.out.println("looping...");
         }
         do {
-            System.out.println("Are you ready?");
-            String svar = scanner.nextLine();
-            if (svar.equals("stop")){
-                break;
+            System.out.println("Type 1 to throw. Type stop to exit");
+            String svar = scanner.next();
+
+            switch (svar){
+                case "stop":
+                    return;
+                case "1":
+                    System.out.println("Throwing");
+                    break;
+                default:
+                    System.out.println("Wrong input");
+                    System.out.println("-----------");
             }
+
         } while (true);
     }
 }
